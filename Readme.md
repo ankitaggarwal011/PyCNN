@@ -19,19 +19,14 @@ Usuage:
 import cnnimage as cnn
 
 cnn.edgedetection(inputimagelocation, outputimagelocation)
-
 cnn.grayscaleedgedetection(inputimagelocation, outputimagelocation)
-
 cnn.cornerdetection(inputimagelocation, outputimagelocation)
-
 cnn.diagonallinedetection(inputimagelocation, outputimagelocation)
-
 cnn.logicNOT(inputimagelocation, outputimagelocation)
-
 cnn.generaltemplates(inputimagelocation, outputimagelocation)
 
-inputimagelocation is the location of the input image, Type: String.
 
+inputimagelocation is the location of the input image, Type: String.
 outputimagelocation is the location of the output image, Type: String.
 
 See example.py for more details.
