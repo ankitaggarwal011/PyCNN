@@ -1,4 +1,5 @@
 Author: Ankit Aggarwal
+
 Contact: ankitaggarwal011@gmail.com
 
 Cellular Neural Networks Image Processing Python Library:
@@ -9,19 +10,28 @@ This python library is the implementation of CNN for the application of Image Pr
 
 Dependencies:
 Image
+
 Scipy
+
 Numpy
 
 Usuage:
 import cnnimage as cnn
+
 cnn.edgedetection(inputimagelocation, outputimagelocation)
+
 cnn.grayscaleedgedetection(inputimagelocation, outputimagelocation)
+
 cnn.cornerdetection(inputimagelocation, outputimagelocation)
+
 cnn.diagonallinedetection(inputimagelocation, outputimagelocation)
+
 cnn.logicNOT(inputimagelocation, outputimagelocation)
+
 cnn.generaltemplates(inputimagelocation, outputimagelocation)
 
 inputimagelocation is the location of the input image, Type: String.
+
 outputimagelocation is the location of the output image, Type: String.
 
 See example.py for more details.
