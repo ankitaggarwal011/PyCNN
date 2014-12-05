@@ -1,6 +1,6 @@
 # Cellular Neural Networks Image Processing Python Library
 
-**Cellular Neural Networks (CNN) ** are a parallel computing paradigm similar to neural networks, with the difference that communication is allowed between neighbouring units only. Image Processing is one of its application. CNN processors were designed to perform image processing; specifically, the original application of CNN processors was to perform real-time ultra-high frame-rate (>10,000 frame/s) processing unachievable by digital processors.
+**Cellular Neural Networks (CNN)** are a parallel computing paradigm similar to neural networks, with the difference that communication is allowed between neighbouring units only. Image Processing is one of its application. CNN processors were designed to perform image processing; specifically, the original application of CNN processors was to perform real-time ultra-high frame-rate (>10,000 frame/s) processing unachievable by digital processors.
 
 This python library is the implementation of CNN for the application of **Image Processing**.
 
