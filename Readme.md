@@ -19,13 +19,13 @@ Numpy
 ## Usage
 *Image Processing* using CNN is simple using this library, just clone the repository and use the following code.
 ```python
-import cnnimg as cnn
-cnn.edgedetection("input.bmp", "output1.png")
-cnn.grayscaleedgedetection("input.bmp", "output2.png")
-cnn.cornerdetection("input.bmp", "output3.png")
-cnn.diagonallinedetection("input.bmp", "output4.png")
-cnn.logicNOT("input.bmp", "output5.png")
-cnn.generaltemplates("input.bmp", "output6.png")
+from cnnimg import cnn
+cnn.edgedetection('input.bmp', 'output1.png')
+cnn.grayscaleedgedetection('input.bmp', 'output2.png')
+cnn.cornerdetection('input.bmp', 'output3.png')
+cnn.diagonallinedetection('input.bmp', 'output4.png')
+cnn.inversion('input.bmp', 'output5.png')
+cnn.generaltemplates('input.bmp', 'output6.png')
 ```
 #### OR
 Use example.py available with the repository.
@@ -34,7 +34,7 @@ $ python example.py
 ```
 ## API
 ```python
-import cnnimage as cnn
+from cnnimg import cnn
 ```
 Import the module in your main file.
 #### cnn.edgedetection(inputimagelocation, outputimagelocation)
@@ -45,7 +45,7 @@ Function for grayscale edge detection using CNN on a given image.
 Function for corner detection using CNN on a given image.
 #### cnn.diagonallinedetection(inputimagelocation, outputimagelocation)
 Function for diagonal line detection using CNN on a given image.
-#### cnn.logicNOT(inputimagelocation, outputimagelocation)
+#### cnn.inversion(inputimagelocation, outputimagelocation)
 Function for invert an image using CNN.
 #### cnn.generaltemplates(inputimagelocation, outputimagelocation)
 Function for applying general CNN templates on a given image.
