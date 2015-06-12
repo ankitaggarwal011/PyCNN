@@ -1,4 +1,4 @@
-# Cellular Neural Networks Image Processing Python Library
+# PyCNN: Cellular Neural Networks Image Processing Python Library
 
 **Cellular Neural Networks (CNN)** are a parallel computing paradigm similar to neural networks, with the difference that communication is allowed between neighboring units only. Image Processing is one of its application. CNN processors were designed to perform image processing; specifically, the original application of CNN processors was to perform real-time ultra-high frame-rate (>10,000 frame/s) processing unachievable by digital processors.
 
@@ -8,7 +8,7 @@ This python library is the implementation of CNN for the application of **Image 
 
 ## Motivation
 
-This is an extension of a demo at 14th Cellular Nanoscale Networks and Applications (CNNA) Conference 2014.
+This is an extension of a demo at 14th Cellular Nanoscale Networks and Applications (CNNA) Conference 2014. I have written a blog post, available at [Image Processing in CNN with Python on Raspberry Pi](http://blog.ankitaggarwal.me/technology/image-processing-with-cellular-neural-networks-using-python-on-raspberry-pi/).
 
 ## Dependencies
 The python modules are needed in order to use this library.
