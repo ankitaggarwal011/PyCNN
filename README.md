@@ -4,6 +4,8 @@
 
 This python library is the implementation of CNN for the application of **Image Processing**.
 
+![alt text](http://www.isiweb.ee.ethz.ch/haenggi/CNN_web/CNN_figures/blockdiagram.gif "CNN Architecture")
+
 ## Motivation
 
 This is an extension of a demo at 14th Cellular Nanoscale Networks and Applications (CNNA) Conference 2014.
