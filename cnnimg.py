@@ -71,7 +71,7 @@ class cnnimg:
         z0 = z0.reshape(z0.size)
         z = self.cnn(sint.odeint(self.f, z0, t))
         l = z[z.shape[0]-1,:].reshape((self.n, self.m))
-        l = np.flipud(l/(255.0))
+        l = l/(255.0)
         for i in range(l.shape[0]):
             for j in range(l.shape[1]):
                 l[i][j] = np.uint8(round(l[i][j]*255))

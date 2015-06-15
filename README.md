@@ -37,49 +37,49 @@ $ python example.py
 
 ## Example results
 
-![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/input.bmp)
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/input.bmp)
 *Input: input.bmp*
 
 **Edge Detection:**
 
-![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/output1.png)
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/output1.png)
 *Output: output1.png*
 
 
 **Corner Detection:**
 
-![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/output3.png)
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/output3.png)
 *Output: output3.png*
 
 
 **Diagonal line Detection:**
 
-![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/output4.png)
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/output4.png)
 *Output: output4.png*
 
 
 **Inversion (Logic NOT):**
 
-![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/output5.png)
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/output5.png)
 *Output: output5.png*
 
 ## Another example (Lenna)
 
 Here, the input is the popular face in image processing field, Lenna.
 
-![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/lenna.gif)
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/lenna.gif)
 *Input: lenna.gif*
 
 
 **Edge Detection:**
 
-![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/lenna_edge.png)
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/lenna_edge.png)
 *Output: lenna_edge.png*
 
 
 **Diagonal line Detection:**
 
-![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/lenna_diagonal.png)
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/lenna_diagonal.png)
 *Output: lenna_diagonal.png*
 
 
