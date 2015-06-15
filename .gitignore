@@ -172,7 +172,6 @@ App_Data/*.ldf
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
-*.png
 
 # Folder config file
 Desktop.ini

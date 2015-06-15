@@ -34,6 +34,33 @@ Use example.py available with the repository.
 ```sh
 $ python example.py
 ```
+
+## Example results
+
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/input.bmp)
+*Input: input.bmp*
+
+Edge Detection:
+
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/output1.png)
+*Output: output1.png*
+
+Corner Detection:
+
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/output3.png)
+*Output: output3.png*
+
+Diagonal line Detection:
+
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/output4.png)
+*Output: output4.png*
+
+Inversion (Logic NOT):
+
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/output5.png)
+*Output: output5.png*
+
+
 ## API
 ```python
 from cnnimg import cnn
