@@ -73,14 +73,14 @@ Here, the input is the popular face in image processing field, Lenna.
 
 **Edge Detection:**
 
-![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/output_edge.png)
-*Output: output_edge.png*
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/lenna_edge.png)
+*Output: lenna_edge.png*
 
 
 **Diagonal line Detection:**
 
-![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/output_diagonal.png)
-*Output: output_diagonal.png*
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/lenna_diagonal.png)
+*Output: lenna_diagonal.png*
 
 
 ## API
