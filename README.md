@@ -40,25 +40,29 @@ $ python example.py
 ![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/input.bmp)
 *Input: input.bmp*
 
-Edge Detection:
+**Edge Detection:**
 
 ![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/output1.png)
 *Output: output1.png*
 
-Corner Detection:
+
+**Corner Detection:**
 
 ![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/output3.png)
 *Output: output3.png*
 
-Diagonal line Detection:
+
+**Diagonal line Detection:**
 
 ![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/output4.png)
 *Output: output4.png*
 
-Inversion (Logic NOT):
+
+**Inversion (Logic NOT):**
 
 ![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/output5.png)
 *Output: output5.png*
+
 
 
 ## API
