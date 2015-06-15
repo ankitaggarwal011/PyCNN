@@ -63,6 +63,24 @@ $ python example.py
 ![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/output5.png)
 *Output: output5.png*
 
+## Another example (Lenna)
+
+Here, the input is the popular face in image processing field, Lenna.
+
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/lenna.gif)
+*Input: lenna.gif*
+
+
+**Edge Detection:**
+
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/output_edge.png)
+*Output: output_edge.png*
+
+
+**Diagonal line Detection:**
+
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/output_diagonal.png)
+*Output: output_diagonal.png*
 
 
 ## API
