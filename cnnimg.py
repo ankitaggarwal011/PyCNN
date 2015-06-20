@@ -173,6 +173,3 @@ class cnnimg:
         return
 
     ## end of module
-
-# Initialize the cnn class
-cnn = cnnimg()

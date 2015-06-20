@@ -21,7 +21,10 @@ Numpy
 ## Usage
 *Image Processing* using CNN is simple using this library, just clone the repository and use the following code.
 ```python
-from cnnimg import cnn
+from cnnimg import cnnimg
+
+cnn = cnnimg()
+
 cnn.edgedetection('input.bmp', 'output1.png')
 cnn.grayscaleedgedetection('input.bmp', 'output2.png')
 cnn.cornerdetection('input.bmp', 'output3.png')
@@ -85,9 +88,15 @@ Here, the input is the popular face in image processing field, Lenna.
 
 ## API
 ```python
-from cnnimg import cnn
+from cnnimg import cnnimg
 ```
 Import the module in your main file.
+
+```python
+cnn = cnnimg()
+```
+Initialize the cnn class
+
 #### cnn.edgedetection(inputimagelocation, outputimagelocation)
 Function for edge detection using CNN on a given image.
 #### cnn.grayscaleedgedetection(inputimagelocation, outputimagelocation)
