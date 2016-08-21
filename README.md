@@ -10,7 +10,7 @@ This python library is the implementation of CNN for the application of **Image 
 
 ![alt text](http://www.isiweb.ee.ethz.ch/haenggi/CNN_web/CNN_figures/blockdiagram.gif "CNN Architecture")
 
-As shown in the above diagram, imagine a control system with a feedback loop. f(x) is the sigmoidal kernel function for this system. The control and the feedback templates (coefficients) are configurable and controls the output of the system. Significant research had been done in determining the templates for common image processing techniques, these templates are published in this [Template Library](http://cnn-technology.itk.ppke.hu/Template_library_v4.0alpha1.pdf):
+As shown in the above diagram, imagine a control system with a feedback loop. f(x) is the sigmoidal kernel function for this system. The control and the feedback templates (coefficients) are configurable and controls the output of the system. Significant research had been done in determining the templates for common image processing techniques, these templates are published in this [Template Library](http://cnn-technology.itk.ppke.hu/Template_library_v4.0alpha1.pdf).
 
 ## Motivation
 
