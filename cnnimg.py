@@ -119,7 +119,7 @@ class cnnimg:
             print "Invalid Location. Please try again ... "
             exit()
         print "Corner detection is initialized ... "
-        tempA = np.array([[0.0, 0.0, 0.0], [0.0,1.0, 0.0], [0.0, 0.0, 0.0]]) 
+        tempA = np.array([[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 0.0]]) 
         tempB = np.array([[-1.0, -1.0, -1.0], [-1.0, 4.0, -1.0], [-1.0, -1.0, -1.0]])  
         Ib = -5.0
         t = np.linspace(0, 10.0, num=10)
