@@ -17,7 +17,7 @@ As shown in the above diagram, imagine a control system with a feedback loop. f(
 This is an extension of a demo at 14th Cellular Nanoscale Networks and Applications (CNNA) Conference 2014. I have written a blog post, available at [Image Processing in CNN with Python on Raspberry Pi](http://blog.ankitaggarwal.me/technology/image-processing-with-cellular-neural-networks-using-python-on-raspberry-pi/).
 
 ## Dependencies
-The python (2.7.6) modules are needed in order to use this library.
+The python modules are needed in order to use this library.
 ```
 Pillow: 3.3.1
 Scipy: 0.14.1rc1
