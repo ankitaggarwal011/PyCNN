@@ -28,7 +28,7 @@ SOFTWARE.
 ## start of module
 import scipy.signal as sig
 import scipy.integrate as sint
-import Image as img
+from PIL import Image as img
 import numpy as np
 import os.path
 import warnings
