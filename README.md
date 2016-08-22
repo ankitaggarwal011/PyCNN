@@ -19,7 +19,7 @@ This is an extension of a demo at 14th Cellular Nanoscale Networks and Applicati
 ## Dependencies
 The python (2.7.6) modules are needed in order to use this library.
 ```
-PIL (Image): 1.1.7
+Pillow: 3.3.1
 Scipy: 0.14.1rc1
 Numpy: 1.8.1
 ```
