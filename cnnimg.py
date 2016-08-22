@@ -26,6 +26,7 @@ SOFTWARE.
 """
 
 ## start of module
+from __future__ import print_function
 import scipy.signal as sig
 import scipy.integrate as sint
 from PIL import Image as img
