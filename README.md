@@ -17,13 +17,16 @@ As shown in the above diagram, imagine a control system with a feedback loop. f(
 This is an extension of a demo at 14th Cellular Nanoscale Networks and Applications (CNNA) Conference 2014. I have written a blog post, available at [Image Processing in CNN with Python on Raspberry Pi](http://blog.ankitaggarwal.me/technology/image-processing-with-cellular-neural-networks-using-python-on-raspberry-pi/).
 
 ## Dependencies
-The python modules are needed in order to use this library.
+
+The library is supported for Python >= 2.7 and Python >= 3.3.
+
+The python modules needed in order to use this library.
 ```
 Pillow: 3.3.1
-Scipy: 0.14.1rc1
-Numpy: 1.8.1
+Scipy: 0.18.0
+Numpy: 1.11.1 + mkl
 ```
-Note: The module versions mentioned are tested and expected to work. The library might work on later versions, but that hasn't been tested. If you have information regarding this, please consider adding the same here. Thanks.
+Note: Scipy and Numpy can be installed on a Windows machines using binaries provided over [here](http://www.lfd.uci.edu/%7Egohlke/pythonlibs).
 
 ## Usage
 *Image Processing* using CNN is simple using this library, just clone the repository and use the following code.
