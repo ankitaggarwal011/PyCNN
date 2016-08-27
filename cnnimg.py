@@ -44,16 +44,16 @@ class cnnimg:
         return
 
     ##Helper Functions start
-    def f(self, x, t):
+    def f(self, x, t, Ib, Bu, tempA):
         x = x.reshape((self.n, self.m))
-        dx = -x + self.Ib + self.Bu + sig.convolve2d(self.cnn(x), self.tempA, 'same')
+        dx = -x + Ib + Bu + sig.convolve2d(self.cnn(x), tempA, 'same')
         return dx.reshape(self.m*self.n)
 
     def cnn(self, x):
       return 0.5*(abs(x + 1) - abs(x - 1))
 
     def isvalid(self, inputlocation):
-        if not os.path.isfile(inputlocation): 
+        if not os.path.isfile(inputlocation):
             raise Exception("File does not exist")
         elif inputlocation.split(".")[1].lower() not in self.filetypes or "." not in inputlocation:
             raise Exception("Invalid File")
@@ -66,16 +66,17 @@ class cnnimg:
         u = np.array(gray)
         u = u[:,:,0]
         z0 = (u)*initialcondition
-        self.Bu = sig.convolve2d(u, tempB, 'same')
-        self.tempA = tempA
-        self.Ib = Ib
-        z0 = z0.reshape(z0.size)
-        z = self.cnn(sint.odeint(self.f, z0, t))
+        Bu = sig.convolve2d(u, tempB, 'same')
+        z0 = z0.flatten()
+        z = self.cnn(sint.odeint(self.f, z0, t, args=(Ib, Bu, tempA)))
         l = z[z.shape[0]-1,:].reshape((self.n, self.m))
         l = l/(255.0)
-        for i in range(l.shape[0]):
-            for j in range(l.shape[1]):
-                l[i][j] = np.uint8(round(l[i][j]*255))
+        l = np.uint8(np.round(l*255))
+        # The direct vectorization was causing problems on Raspberry Pi.
+        # In case anyone face a similar issue, use the below loops rather than the above direct vectorization.
+        # for i in range(l.shape[0]):
+        #     for j in range(l.shape[1]):
+        #         l[i][j] = np.uint8(round(l[i][j]*255))
         l = img.fromarray(l).convert('RGB')
         l.save(outputlocation)
         print("Image Processing is successful.")
