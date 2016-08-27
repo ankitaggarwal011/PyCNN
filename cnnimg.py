@@ -25,7 +25,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-## start of module
 from __future__ import print_function
 import scipy.signal as sig
 import scipy.integrate as sint
@@ -34,23 +33,20 @@ import numpy as np
 import os.path
 import warnings
 
-#Ignore warnings
-warnings.filterwarnings("ignore")
+warnings.filterwarnings("ignore") # Ignore trivial warnings
 
 class cnnimg:
     def __init__(self):
-        ##Supported Filetypes
-        self.filetypes = ["jpeg", "jpg", "png", "tiff", "gif", "bmp"]
+        self.filetypes = ["jpeg", "jpg", "png", "tiff", "gif", "bmp"] # Supported filetypes
         return
 
-    ##Helper Functions start
     def f(self, x, t, Ib, Bu, tempA):
         x = x.reshape((self.n, self.m))
         dx = -x + Ib + Bu + sig.convolve2d(self.cnn(x), tempA, 'same')
-        return dx.reshape(self.m*self.n)
+        return dx.reshape(self.m * self.n)
 
     def cnn(self, x):
-      return 0.5*(abs(x + 1) - abs(x - 1))
+      return 0.5 * (abs(x + 1) - abs(x - 1))
 
     def isvalid(self, inputlocation):
         if not os.path.isfile(inputlocation):
@@ -64,28 +60,24 @@ class cnnimg:
         gray = img.open(inputlocation).convert('RGB')
         self.m, self.n = gray.size
         u = np.array(gray)
-        u = u[:,:,0]
-        z0 = (u)*initialcondition
+        u = u[:, :, 0]
+        z0 = u * initialcondition
         Bu = sig.convolve2d(u, tempB, 'same')
         z0 = z0.flatten()
         z = self.cnn(sint.odeint(self.f, z0, t, args=(Ib, Bu, tempA)))
-        l = z[z.shape[0]-1,:].reshape((self.n, self.m))
-        l = l/(255.0)
-        l = np.uint8(np.round(l*255))
+        l = z[z.shape[0] - 1, :].reshape((self.n, self.m))
+        l = l / (255.0)
+        l = np.uint8(np.round(l * 255))
         # The direct vectorization was causing problems on Raspberry Pi.
         # In case anyone face a similar issue, use the below loops rather than the above direct vectorization.
         # for i in range(l.shape[0]):
         #     for j in range(l.shape[1]):
-        #         l[i][j] = np.uint8(round(l[i][j]*255))
+        #         l[i][j] = np.uint8(round(l[i][j] * 255))
         l = img.fromarray(l).convert('RGB')
         l.save(outputlocation)
         print("Image Processing is successful.")
         return
-    ## Helper Functions end
 
-    ## Image Processing methods start    
-
-    #edge detection #working
     def edgedetection(self, inputlocation = "", outputlocation = "output.png"):
         if not self.isvalid(inputlocation):
             print("Invalid Location. Please try again ... ")
@@ -100,7 +92,6 @@ class cnnimg:
         print("Edge detection of image "+ inputlocation +" is complete and saved at " + outputlocation + '\n')
         return
 
-    #grayscale edge detection #working
     def grayscaleedgedetection(self, inputlocation = "", outputlocation = "output.png"):
         if not self.isvalid(inputlocation):
             print("Invalid Location. Please try again ... ")
@@ -115,7 +106,6 @@ class cnnimg:
         print("Grayscale edge detection of image "+ inputlocation +" is complete and saved at " + outputlocation + '\n')
         return
 
-    #corner #working
     def cornerdetection(self, inputlocation = "", outputlocation = "output.png"):
         if not self.isvalid(inputlocation):
             print("Invalid Location. Please try again ... ")
@@ -130,7 +120,6 @@ class cnnimg:
         print("Corner detection of image "+ inputlocation +" is complete and saved at " + outputlocation + '\n')
         return
 
-    #diagonal line detector #working
     def diagonallinedetection(self, inputlocation = "", outputlocation = "output.png"):
         if not self.isvalid(inputlocation):
             print("Invalid Location. Please try again ... ")
@@ -145,7 +134,6 @@ class cnnimg:
         print("Diagonal line detection of image "+ inputlocation +" is complete and saved at " + outputlocation + '\n')
         return
 
-    # logic NOT #inversion #working
     def inversion(self, inputlocation = "", outputlocation = "output.png"):
         if not self.isvalid(inputlocation):
             print("Invalid Location. Please try again ... ")
@@ -159,9 +147,8 @@ class cnnimg:
         self.imageprocessing(inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
         print("Inversion of image "+ inputlocation +" is complete and saved at " + outputlocation + '\n')
         return
-    ## Image Processing methods end
 
-    ## General Image Processing method with template input
+    ## general method with functionality to give template as an input
     def generaltemplates(self, inputlocation = "", outputlocation = "output.png", tempA_A = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]], tempB_B = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]], initialcondition = 0.0, Ib_b = 0.0, t = np.linspace(0, 10.0, num=2)):
         if not self.isvalid(inputlocation):
             print("Invalid Location. Please try again ... ")
@@ -173,5 +160,3 @@ class cnnimg:
         self.imageprocessing(inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
         print("Given templates applied to image "+ inputlocation +" is complete and saved at " + outputlocation + '\n')
         return
-
-    ## end of module
