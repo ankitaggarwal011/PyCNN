@@ -1,9 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from cnnimg import cnnimg
+from pycnn import pycnn
 
 # Initialize the cnn class
-cnn = cnnimg()
+cnn = pycnn()
 
 # Perform respective image processing techniques on the given image
 

@@ -35,7 +35,7 @@ import warnings
 
 warnings.filterwarnings("ignore") # Ignore trivial warnings
 
-class cnnimg:
+class pycnn:
     def __init__(self):
         self.filetypes = ["jpeg", "jpg", "png", "tiff", "gif", "bmp"] # Supported filetypes
         return
