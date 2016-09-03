@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from pycnn import pycnn
 
-# Initialize the cnn class
+# Initialize object
 cnn = pycnn()
 
 # Perform respective image processing techniques on the given image

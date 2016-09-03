@@ -28,108 +28,168 @@ Numpy: 1.11.1 + mkl
 ```
 Note: Scipy and Numpy can be installed on a Windows machines using binaries provided over [here](http://www.lfd.uci.edu/%7Egohlke/pythonlibs).
 
-## Usage
-*Image Processing* using CNN is simple using this library, just clone the repository and use the following code.
-```python
-from pycnn import pycnn
+## Example 1
 
-cnn = pycnn()
-
-cnn.edgedetection('input.bmp', 'output1.png')
-cnn.grayscaleedgedetection('input.bmp', 'output2.png')
-cnn.cornerdetection('input.bmp', 'output3.png')
-cnn.diagonallinedetection('input.bmp', 'output4.png')
-cnn.inversion('input.bmp', 'output5.png')
-cnn.generaltemplates('input.bmp', 'output6.png')
-```
-#### OR
-Use example.py available with the repository.
 ```sh
 $ python example.py
 ```
 
-## Example results
+#### OR
+
+```python
+from pycnn import pycnn
+
+cnn = pycnn()
+```
+
+**Input:**
 
 ![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/input.bmp)
-*Input: input.bmp*
 
 **Edge Detection:**
 
-![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/output1.png)
-*Output: output1.png*
+```python
+cnn.edgedetection('images/input.bmp', 'images/output1.png')
+```
 
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/output1.png)
+
+**Grayscale Edge Detection**
+
+```python
+cnn.grayscaleedgedetection('images/input.bmp', 'images/output2.png')
+```
+
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/output2.png)
 
 **Corner Detection:**
 
-![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/output3.png)
-*Output: output3.png*
+```python
+cnn.cornerdetection('images/input.bmp', 'images/output3.png')
+```
 
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/output3.png)
 
 **Diagonal line Detection:**
 
-![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/output4.png)
-*Output: output4.png*
+```python
+cnn.diagonallinedetection('images/input.bmp', 'images/output4.png')
+```
 
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/output4.png)
 
 **Inversion (Logic NOT):**
 
+```python
+cnn.inversion('images/input.bmp', 'images/output5.png')
+```
+
 ![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/output5.png)
-*Output: output5.png*
 
-## Another example (Lenna)
+## Example 2
 
-Here, the input is the popular face in image processing field, Lenna.
+```sh
+$ python example_lenna.py
+```
+
+#### OR
+
+```python
+from pycnn import pycnn
+
+cnn = pycnn()
+```
+
+**Input:**
 
 ![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/lenna.gif)
-*Input: lenna.gif*
-
 
 **Edge Detection:**
 
-![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/lenna_edge.png)
-*Output: lenna_edge.png*
+```python
+cnn.edgedetection('images/lenna.gif', 'images/lenna_edge.png')
+```
 
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/lenna_edge.png)
 
 **Diagonal line Detection:**
 
+```python
+cnn.diagonallinedetection('images/lenna.gif', 'images/lenna_diagonal.png')
+```
+
 ![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/lenna_diagonal.png)
-*Output: lenna_diagonal.png*
 
+## Usage
 
-## API
+Import module
+
 ```python
 from pycnn import pycnn
 ```
-Import the module in your main file.
+
+Initialize object
 
 ```python
 cnn = pycnn()
 ```
-Initialize the cnn class
 
-#### cnn.edgedetection(inputimagelocation, outputimagelocation)
-Function for edge detection using CNN on a given image.
-#### cnn.grayscaleedgedetection(inputimagelocation, outputimagelocation)
-Function for grayscale edge detection using CNN on a given image.
-#### cnn.cornerdetection(inputimagelocation, outputimagelocation)
-Function for corner detection using CNN on a given image.
-#### cnn.diagonallinedetection(inputimagelocation, outputimagelocation)
-Function for diagonal line detection using CNN on a given image.
-#### cnn.inversion(inputimagelocation, outputimagelocation)
-Function for invert an image using CNN.
-#### cnn.generaltemplates(inputimagelocation, outputimagelocation)
-Function for applying general CNN templates on a given image.
+```python
+# inputimagelocation: location of the input image; type: String.
+# outputimagelocation: location of the output image; type: String.
+# tempA_A: control template; type: 3 x 3 list.
+# tempB_B: feedback template; type: 3 x 3 list.
+# initialcondition: initial condition, type: float.
+# Ib_b: bias, type: float.
+```
 
-#### inputimagelocation is the location of the input image, Type: String.
-#### outputimagelocation is the location of the output image, Type: String.
+General image processing
 
+```python
+cnn.generaltemplates(inputimagelocation, outputimagelocation, tempA_A, tempB_B, initialcondition, Ib_b)
+```
 
-## Contributors
+Edge detection
 
-#### Author: Ankit Aggarwal
+```python
+cnn.edgedetection(inputimagelocation, outputimagelocation)
+```
 
-If anybody is interested in working on developing this library, fork and feel free to get in touch with me.
+Grayscale edge detection
+
+```python
+cnn.grayscaleedgedetection(inputimagelocation, outputimagelocation)
+```
+
+Corner detection
+
+```python
+cnn.cornerdetection(inputimagelocation, outputimagelocation)
+```
+
+Diagonal line detection
+
+```python
+cnn.diagonallinedetection(inputimagelocation, outputimagelocation)
+```
+
+Inversion (Login NOT)
+
+```python
+cnn.inversion(inputimagelocation, outputimagelocation)
+```
 
 ## License
 
 [MIT License](https://github.com/ankitaggarwal011/CNN-Image-Processing/blob/master/LICENSE)
+
+## Contribute
+
+Want to work on the project? Any kind of contribution is welcome!
+
+Follow these steps:
+- Fork the project.
+- Create a new branch.
+- Make your changes and write tests when practical.
+- Commit your changes to the new branch.
+- Send a pull request.

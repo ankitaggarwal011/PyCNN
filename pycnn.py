@@ -56,7 +56,7 @@ class pycnn:
         else:
             return True
 
-    def imageprocessing(self, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t):
+    def imageprocessing(self, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t): #tempA: control template, tempB: feedback template
         gray = img.open(inputlocation).convert('RGB')
         self.m, self.n = gray.size
         u = np.array(gray)
