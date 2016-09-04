@@ -182,7 +182,7 @@ cnn.inversion(inputimagelocation, outputimagelocation)
 
 ## License
 
-[MIT License](https://github.com/ankitaggarwal011/CNN-Image-Processing/blob/master/LICENSE)
+[MIT License](https://github.com/ankitaggarwal011/PyCNN/blob/master/LICENSE)
 
 ## Contribute
 
