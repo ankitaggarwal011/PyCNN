@@ -14,7 +14,7 @@ As shown in the above diagram, imagine a control system with a feedback loop. f(
 
 ## Motivation
 
-This is an extension of a demo at 14th Cellular Nanoscale Networks and Applications (CNNA) Conference 2014. I have written a blog post, available at [Image Processing in CNN with Python on Raspberry Pi](http://blog.ankitaggarwal.me/technology/image-processing-with-cellular-neural-networks-using-python-on-raspberry-pi/).
+This is an extension of a demo at 14th Cellular Nanoscale Networks and Applications (CNNA) Conference 2014. I have written a blog post, available at [Image Processing in CNN with Python on Raspberry Pi](http://blog.ankitaggarwal.me/technology/image-processing-with-cellular-neural-networks-in-python-on-raspberry-pi/).
 
 ## Dependencies
 
