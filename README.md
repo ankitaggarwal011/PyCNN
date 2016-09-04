@@ -135,8 +135,9 @@ cnn = pycnn()
 ```
 
 ```python
-# inputimagelocation: location of the input image; type: String.
-# outputimagelocation: location of the output image; type: String.
+# name: name of image processing method (say, Edge detection); type: string
+# inputimagelocation: location of the input image; type: string.
+# outputimagelocation: location of the output image; type: string.
 # tempA_A: control template; type: 3 x 3 list.
 # tempB_B: feedback template; type: 3 x 3 list.
 # initialcondition: initial condition, type: float.
@@ -146,7 +147,7 @@ cnn = pycnn()
 General image processing
 
 ```python
-cnn.generaltemplates(inputimagelocation, outputimagelocation, tempA_A, tempB_B, initialcondition, Ib_b)
+cnn.generaltemplates(name, inputimagelocation, outputimagelocation, tempA_A, tempB_B, initialcondition, Ib_b)
 ```
 
 Edge detection

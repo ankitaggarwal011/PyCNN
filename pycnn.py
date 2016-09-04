@@ -78,60 +78,61 @@ class pycnn:
         return
 
     ## general image processing for given templates
-    def generaltemplates(self, inputlocation = "", outputlocation = "output.png", tempA_A = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]], tempB_B = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]], initialcondition = 0.0, Ib_b = 0.0, t = np.linspace(0, 10.0, num=2)):
+    def generaltemplates(self, name = "Image processing", inputlocation = "", outputlocation = "output.png", tempA_A = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]], tempB_B = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]], initialcondition = 0.0, Ib_b = 0.0, t = np.linspace(0, 10.0, num=2)):
         if not self.isvalid(inputlocation):
             print("Invalid Location. Please try again.")
             exit()
+        print(name, "initialized.")
         self.imageprocessing(inputlocation, outputlocation, np.array(tempA_A), np.array(tempB_B), initialcondition, Ib_b, t)
         print("Processing on image "+ inputlocation +" is complete and the result is saved at " + outputlocation + '.\n')
         return
 
     def edgedetection(self, inputlocation = "", outputlocation = "output.png"):
-        print("Edge detection initialized.")
+        name = "Edge detection"
         tempA = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[-1.0, -1.0, -1.0], [-1.0, 8.0, -1.0], [-1.0, -1.0, -1.0]]
         Ib = -1.0
         t = np.linspace(0, 10.0, num=2)
         initialcondition = 0.0
-        self.generaltemplates(inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
+        self.generaltemplates(name, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
         return
 
     def grayscaleedgedetection(self, inputlocation = "", outputlocation = "output.png"):
-        print("Grayscale edge detection initialized.")
+        name = "Grayscale edge detection"
         tempA = [[0.0, 0.0, 0.0], [0.0, 2.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[-1.0, -1.0, -1.0], [-1.0, 8.0, -1.0], [-1.0, -1.0, -1.0]]
         Ib = -0.5
         t = np.linspace(0, 1.0, num=100)
         initialcondition = 0.0
-        self.generaltemplates(inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
+        self.generaltemplates(name, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
         return
 
     def cornerdetection(self, inputlocation = "", outputlocation = "output.png"):
-        print("Corner detection initialized.")
+        name = "Corner detection"
         tempA = [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[-1.0, -1.0, -1.0], [-1.0, 4.0, -1.0], [-1.0, -1.0, -1.0]] 
         Ib = -5.0
         t = np.linspace(0, 10.0, num=10)
         initialcondition = 0.0
-        self.generaltemplates(inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
+        self.generaltemplates(name, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
         return
 
     def diagonallinedetection(self, inputlocation = "", outputlocation = "output.png"):
-        print("Diagonal line detection initialized.")
+        name = "Diagonal line detection"
         tempA = [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[-1.0, 0.0, 1.0], [0.0, 1.0, 0.0], [1.0, 0.0, -1.0]]
         Ib = -4.0
         t = np.linspace(0, 0.2, num=100)
         initialcondition = 0.0
-        self.generaltemplates(inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
+        self.generaltemplates(name, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
         return
 
     def inversion(self, inputlocation = "", outputlocation = "output.png"):
-        print("Inversion initialized.")
+        name = "Inversion"
         tempA = [[0.0, 0.0, 0.0], [0.0,1.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[0.0, 0.0, 0.0], [1.0, 1.0, 1.0], [0.0, 0.0, 0.0]]
         Ib = -2.0
         t = np.linspace(0, 10.0, num=100)
         initialcondition = 0.0
-        self.generaltemplates(inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
+        self.generaltemplates(name, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
         return
