@@ -92,7 +92,8 @@ class pycnn:
         tempA = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[-1.0, -1.0, -1.0], [-1.0, 8.0, -1.0], [-1.0, -1.0, -1.0]]
         Ib = -1.0
-        t = np.linspace(0, 10.0, num=2)
+        t = np.linspace(0, 10.0, num=2) # num refers to the number of samples of time points from start = 0 to end = 10.0
+                                        # some image processing methods might require more time point samples.
         initialcondition = 0.0
         self.generaltemplates(name, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
         return

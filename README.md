@@ -142,12 +142,15 @@ cnn = pycnn()
 # tempB_B: feedback template; type: 3 x 3 list.
 # initialcondition: initial condition, type: float.
 # Ib_b: bias, type: float.
+# t: time points for integration, type: ndarray. 
+  # Note: Some image processing methods might need more time point samples than default.
+  # Note: Display the output with each time point to see the evolution until the final convergence to the output, looks pretty cool.
 ```
 
 General image processing
 
 ```python
-cnn.generaltemplates(name, inputimagelocation, outputimagelocation, tempA_A, tempB_B, initialcondition, Ib_b)
+cnn.generaltemplates(name, inputimagelocation, outputimagelocation, tempA_A, tempB_B, initialcondition, Ib_b, t)
 ```
 
 Edge detection
