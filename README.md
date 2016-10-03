@@ -138,8 +138,8 @@ cnn = pycnn()
 # name: name of image processing method (say, Edge detection); type: string
 # inputimagelocation: location of the input image; type: string.
 # outputimagelocation: location of the output image; type: string.
-# tempA_A: control template; type: 3 x 3 list.
-# tempB_B: feedback template; type: 3 x 3 list.
+# tempA_A: control template; type: n x n list, e.g. 3 x 3, 5 x 5.
+# tempB_B: feedback template; type: n x n list, e.g. 3 x 3, 5 x 5.
 # initialcondition: initial condition, type: float.
 # Ib_b: bias, type: float.
 # t: time points for integration, type: ndarray. 
