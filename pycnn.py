@@ -33,11 +33,14 @@ import numpy as np
 import os.path
 import warnings
 
-warnings.filterwarnings("ignore") # Ignore trivial warnings
+warnings.filterwarnings("ignore")  # Ignore trivial warnings
+
 
 class pycnn:
+
     def __init__(self):
-        self.filetypes = ["jpeg", "jpg", "png", "tiff", "gif", "bmp"] # Supported filetypes
+        self.filetypes = ["jpeg", "jpg", "png", "tiff",
+                          "gif", "bmp"]  # Supported filetypes
         return
 
     def f(self, x, t, Ib, Bu, tempA):
@@ -46,7 +49,7 @@ class pycnn:
         return dx.reshape(self.m * self.n)
 
     def cnn(self, x):
-      return 0.5 * (abs(x + 1) - abs(x - 1))
+        return 0.5 * (abs(x + 1) - abs(x - 1))
 
     def isvalid(self, inputlocation):
         if not os.path.isfile(inputlocation):
@@ -56,7 +59,8 @@ class pycnn:
         else:
             return True
 
-    def imageprocessing(self, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t): #tempA: control template, tempB: feedback template
+    # tempA: control template, tempB: feedback template
+    def imageprocessing(self, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t):
         gray = img.open(inputlocation).convert('RGB')
         self.m, self.n = gray.size
         u = np.array(gray)
@@ -77,63 +81,72 @@ class pycnn:
         l.save(outputlocation)
         return
 
-    ## general image processing for given templates
-    def generaltemplates(self, name = "Image processing", inputlocation = "", outputlocation = "output.png", tempA_A = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]], tempB_B = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]], initialcondition = 0.0, Ib_b = 0.0, t = np.linspace(0, 10.0, num=2)):
+    # general image processing for given templates
+    def generaltemplates(self, name="Image processing", inputlocation="", outputlocation="output.png", tempA_A=[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]], tempB_B=[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]], initialcondition=0.0, Ib_b=0.0, t=np.linspace(0, 10.0, num=2)):
         if not self.isvalid(inputlocation):
             print("Invalid Location. Please try again.")
             exit()
         print(name, "initialized.")
-        self.imageprocessing(inputlocation, outputlocation, np.array(tempA_A), np.array(tempB_B), initialcondition, Ib_b, t)
-        print("Processing on image "+ inputlocation +" is complete and the result is saved at " + outputlocation + '.\n')
+        self.imageprocessing(inputlocation, outputlocation, np.array(
+            tempA_A), np.array(tempB_B), initialcondition, Ib_b, t)
+        print("Processing on image " + inputlocation +
+              " is complete and the result is saved at " + outputlocation + '.\n')
         return
 
-    def edgedetection(self, inputlocation = "", outputlocation = "output.png"):
+    def edgedetection(self, inputlocation="", outputlocation="output.png"):
         name = "Edge detection"
         tempA = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[-1.0, -1.0, -1.0], [-1.0, 8.0, -1.0], [-1.0, -1.0, -1.0]]
         Ib = -1.0
-        t = np.linspace(0, 10.0, num=2) # num refers to the number of samples of time points from start = 0 to end = 10.0
-                                        # some image processing methods might require more time point samples.
+        # num refers to the number of samples of time points from start = 0 to
+        # end = 10.0
+        t = np.linspace(0, 10.0, num=2)
+        # some image processing methods might require more time point samples.
         initialcondition = 0.0
-        self.generaltemplates(name, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
+        self.generaltemplates(
+            name, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
         return
 
-    def grayscaleedgedetection(self, inputlocation = "", outputlocation = "output.png"):
+    def grayscaleedgedetection(self, inputlocation="", outputlocation="output.png"):
         name = "Grayscale edge detection"
         tempA = [[0.0, 0.0, 0.0], [0.0, 2.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[-1.0, -1.0, -1.0], [-1.0, 8.0, -1.0], [-1.0, -1.0, -1.0]]
         Ib = -0.5
         t = np.linspace(0, 1.0, num=100)
         initialcondition = 0.0
-        self.generaltemplates(name, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
+        self.generaltemplates(
+            name, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
         return
 
-    def cornerdetection(self, inputlocation = "", outputlocation = "output.png"):
+    def cornerdetection(self, inputlocation="", outputlocation="output.png"):
         name = "Corner detection"
         tempA = [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 0.0]]
-        tempB = [[-1.0, -1.0, -1.0], [-1.0, 4.0, -1.0], [-1.0, -1.0, -1.0]] 
+        tempB = [[-1.0, -1.0, -1.0], [-1.0, 4.0, -1.0], [-1.0, -1.0, -1.0]]
         Ib = -5.0
         t = np.linspace(0, 10.0, num=10)
         initialcondition = 0.0
-        self.generaltemplates(name, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
+        self.generaltemplates(
+            name, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
         return
 
-    def diagonallinedetection(self, inputlocation = "", outputlocation = "output.png"):
+    def diagonallinedetection(self, inputlocation="", outputlocation="output.png"):
         name = "Diagonal line detection"
         tempA = [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[-1.0, 0.0, 1.0], [0.0, 1.0, 0.0], [1.0, 0.0, -1.0]]
         Ib = -4.0
         t = np.linspace(0, 0.2, num=100)
         initialcondition = 0.0
-        self.generaltemplates(name, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
+        self.generaltemplates(
+            name, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
         return
 
-    def inversion(self, inputlocation = "", outputlocation = "output.png"):
+    def inversion(self, inputlocation="", outputlocation="output.png"):
         name = "Inversion"
-        tempA = [[0.0, 0.0, 0.0], [0.0,1.0, 0.0], [0.0, 0.0, 0.0]]
+        tempA = [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[0.0, 0.0, 0.0], [1.0, 1.0, 1.0], [0.0, 0.0, 0.0]]
         Ib = -2.0
         t = np.linspace(0, 10.0, num=100)
         initialcondition = 0.0
-        self.generaltemplates(name, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
+        self.generaltemplates(
+            name, inputlocation, outputlocation, tempA, tempB, initialcondition, Ib, t)
         return
