@@ -90,16 +90,12 @@ class pycnn:
             name="Image processing",
             inputlocation="",
             outputlocation="output.png",
-            tempA_A=[
-                [
-                    0.0, 0.0, 0.0], [
-                    0.0, 0.0, 0.0], [
-                        0.0, 0.0, 0.0]],
-            tempB_B=[
-                [
-                    0.0, 0.0, 0.0], [
-                    0.0, 0.0, 0.0], [
-                        0.0, 0.0, 0.0]],
+            tempA_A=[[0.0, 0.0, 0.0], [
+                0.0, 0.0, 0.0], [
+                0.0, 0.0, 0.0]],
+            tempB_B=[[0.0, 0.0, 0.0], [
+                0.0, 0.0, 0.0], [
+                0.0, 0.0, 0.0]],
             initialcondition=0.0,
             Ib_b=0.0,
             t=np.linspace(0, 10.0, num=2)):
