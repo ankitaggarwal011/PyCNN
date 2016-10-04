@@ -39,9 +39,8 @@ warnings.filterwarnings("ignore")  # Ignore trivial warnings
 class pycnn:
 
     def __init__(self):
-        self.filetypes = ["jpeg", "jpg", "png", "tiff",
-                          "gif", "bmp"]  # Supported filetypes
-        return
+        # Supported filetypes
+        self.filetypes = ["jpeg", "jpg", "png", "tiff", "gif", "bmp"]
 
     def f(self, x, t, Ib, Bu, tempA):
         x = x.reshape((self.n, self.m))
@@ -82,36 +81,35 @@ class pycnn:
         #         l[i][j] = np.uint8(round(l[i][j] * 255))
         l = img.fromarray(l).convert('RGB')
         l.save(outputlocation)
-        return
 
     # general image processing for given templates
-    def generaltemplates(
-            self,
-            name="Image processing",
-            inputlocation="",
-            outputlocation="output.png",
-            tempA_A=[[0.0, 0.0, 0.0], [
-                0.0, 0.0, 0.0], [
-                0.0, 0.0, 0.0]],
-            tempB_B=[[0.0, 0.0, 0.0], [
-                0.0, 0.0, 0.0], [
-                0.0, 0.0, 0.0]],
-            initialcondition=0.0,
-            Ib_b=0.0,
-            t=np.linspace(0, 10.0, num=2)):
+    def generaltemplates(self,
+                         name="Image processing",
+                         inputlocation="",
+                         outputlocation="output.png",
+                         tempA_A=[[0.0, 0.0, 0.0],
+                                  [0.0, 0.0, 0.0],
+                                  [0.0, 0.0, 0.0]],
+                         tempB_B=[[0.0, 0.0, 0.0],
+                                  [0.0, 0.0, 0.0],
+                                  [0.0, 0.0, 0.0]],
+                         initialcondition=0.0,
+                         Ib_b=0.0,
+                         t=np.linspace(0, 10.0, num=2)):
         if not self.isvalid(inputlocation):
             print("Invalid Location. Please try again.")
             exit()
+
         print(name, "initialized.")
-        self.imageprocessing(inputlocation, outputlocation, np.array(
-            tempA_A), np.array(tempB_B), initialcondition, Ib_b, t)
-        print(
-            "Processing on image " +
-            inputlocation +
-            " is complete and the result is saved at " +
-            outputlocation +
-            '.\n')
-        return
+        self.imageprocessing(inputlocation,
+                             outputlocation,
+                             np.array(tempA_A),
+                             np.array(tempB_B),
+                             initialcondition,
+                             Ib_b,
+                             t)
+        print("Processing on image %s is complete" % (inputlocation))
+        print("Result is saved at %s.\n" % (outputlocation))
 
     def edgedetection(self, inputlocation="", outputlocation="output.png"):
         name = "Edge detection"
@@ -132,7 +130,6 @@ class pycnn:
             initialcondition,
             Ib,
             t)
-        return
 
     def grayscaleedgedetection(self, inputlocation="",
                                outputlocation="output.png"):
@@ -151,7 +148,6 @@ class pycnn:
             initialcondition,
             Ib,
             t)
-        return
 
     def cornerdetection(self, inputlocation="", outputlocation="output.png"):
         name = "Corner detection"
@@ -169,7 +165,6 @@ class pycnn:
             initialcondition,
             Ib,
             t)
-        return
 
     def diagonallinedetection(self, inputlocation="",
                               outputlocation="output.png"):
@@ -188,7 +183,6 @@ class pycnn:
             initialcondition,
             Ib,
             t)
-        return
 
     def inversion(self, inputlocation="", outputlocation="output.png"):
         name = "Inversion"
@@ -206,4 +200,3 @@ class pycnn:
             initialcondition,
             Ib,
             t)
-        return
