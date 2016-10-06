@@ -34,10 +34,10 @@ import os.path
 import warnings
 
 SUPPORTED_FILETYPES = (
-    "jpeg", "jpg", "png", "tiff", "gif", "bmp",
+    'jpeg', 'jpg', 'png', 'tiff', 'gif', 'bmp',
 )
 
-warnings.filterwarnings("ignore")  # Ignore trivial warnings
+warnings.filterwarnings('ignore')  # Ignore trivial warnings
 
 
 class pycnn(object):
@@ -52,15 +52,15 @@ class pycnn(object):
 
     def validate(self, input_location):
         _, ext = os.path.splitext(input_location)
-        ext = ext.lstrip(".").lower()
+        ext = ext.lstrip('.').lower()
         if not os.path.exists(input_location):
-            raise IOError("File {} does not exist.".format(input_location))
+            raise IOError('File {} does not exist.'.format(input_location))
         elif not os.path.isfile(input_location):
-            raise IOError("Path {} is not a file.".format(input_location))
+            raise IOError('Path {} is not a file.'.format(input_location))
         elif ext not in SUPPORTED_FILETYPES:
             raise Exception(
-                "{} file type is not supported. Supported: {}".format(
-                    ext, ", ".join(SUPPORTED_FILETYPES)
+                '{} file type is not supported. Supported: {}'.format(
+                    ext, ', '.join(SUPPORTED_FILETYPES)
                 )
             )
 
@@ -89,9 +89,9 @@ class pycnn(object):
 
     # general image processing for given templates
     def generaltemplates(self,
-                         name="Image processing",
-                         inputlocation="",
-                         outputlocation="output.png",
+                         name='Image processing',
+                         inputlocation='',
+                         outputlocation='output.png',
                          tempA_A=[[0.0, 0.0, 0.0],
                                   [0.0, 0.0, 0.0],
                                   [0.0, 0.0, 0.0]],
@@ -102,7 +102,7 @@ class pycnn(object):
                          Ib_b=0.0,
                          t=np.linspace(0, 10.0, num=2)):
         self.validate(inputlocation)
-        print(name, "initialized.")
+        print(name, 'initialized.')
         self.imageprocessing(inputlocation,
                              outputlocation,
                              np.array(tempA_A),
@@ -110,11 +110,11 @@ class pycnn(object):
                              initialcondition,
                              Ib_b,
                              t)
-        print("Processing on image %s is complete" % (inputlocation))
-        print("Result is saved at %s.\n" % (outputlocation))
+        print('Processing on image %s is complete' % (inputlocation))
+        print('Result is saved at %s.\n' % (outputlocation))
 
-    def edgedetection(self, inputlocation="", outputlocation="output.png"):
-        name = "Edge detection"
+    def edgedetection(self, inputlocation='', outputlocation='output.png'):
+        name = 'Edge detection'
         tempA = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[-1.0, -1.0, -1.0], [-1.0, 8.0, -1.0], [-1.0, -1.0, -1.0]]
         Ib = -1.0
@@ -133,9 +133,9 @@ class pycnn(object):
             Ib,
             t)
 
-    def grayscaleedgedetection(self, inputlocation="",
-                               outputlocation="output.png"):
-        name = "Grayscale edge detection"
+    def grayscaleedgedetection(self, inputlocation='',
+                               outputlocation='output.png'):
+        name = 'Grayscale edge detection'
         tempA = [[0.0, 0.0, 0.0], [0.0, 2.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[-1.0, -1.0, -1.0], [-1.0, 8.0, -1.0], [-1.0, -1.0, -1.0]]
         Ib = -0.5
@@ -151,8 +151,8 @@ class pycnn(object):
             Ib,
             t)
 
-    def cornerdetection(self, inputlocation="", outputlocation="output.png"):
-        name = "Corner detection"
+    def cornerdetection(self, inputlocation='', outputlocation='output.png'):
+        name = 'Corner detection'
         tempA = [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[-1.0, -1.0, -1.0], [-1.0, 4.0, -1.0], [-1.0, -1.0, -1.0]]
         Ib = -5.0
@@ -168,9 +168,9 @@ class pycnn(object):
             Ib,
             t)
 
-    def diagonallinedetection(self, inputlocation="",
-                              outputlocation="output.png"):
-        name = "Diagonal line detection"
+    def diagonallinedetection(self, inputlocation='',
+                              outputlocation='output.png'):
+        name = 'Diagonal line detection'
         tempA = [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[-1.0, 0.0, 1.0], [0.0, 1.0, 0.0], [1.0, 0.0, -1.0]]
         Ib = -4.0
@@ -186,8 +186,8 @@ class pycnn(object):
             Ib,
             t)
 
-    def inversion(self, inputlocation="", outputlocation="output.png"):
-        name = "Inversion"
+    def inversion(self, inputlocation='', outputlocation='output.png'):
+        name = 'Inversion'
         tempA = [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[0.0, 0.0, 0.0], [1.0, 1.0, 1.0], [0.0, 0.0, 0.0]]
         Ib = -2.0
