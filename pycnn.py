@@ -115,7 +115,7 @@ class pycnn(object):
 
     def edgedetection(self, inputlocation='', outputlocation='output.png'):
         name = 'Edge detection'
-        tempA = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+        tempA = [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[-1.0, -1.0, -1.0], [-1.0, 8.0, -1.0], [-1.0, -1.0, -1.0]]
         Ib = -1.0
         # num refers to the number of samples of time points from start = 0 to
