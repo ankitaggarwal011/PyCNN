@@ -28,7 +28,7 @@ class TestMiscFunctions(unittest.TestCase):
     def test_is_valid(self):
         self.cnn.validate(self.exits_file_name)
         with self.assertRaisesRegexp(IOError, 'does not exist'):
-            self.cnn.validate("/not/exist/filename")
+            self.cnn.validate('/not/exist/filename')
         with self.assertRaisesRegexp(IOError, 'is not a file'):
             self.cnn.validate(self.tempdir)
         with self.assertRaisesRegexp(Exception, 'is not supported'):
