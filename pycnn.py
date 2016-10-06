@@ -74,7 +74,8 @@ class pycnn(object):
         z0 = u * initialcondition
         Bu = sig.convolve2d(u, tempB, 'same')
         z0 = z0.flatten()
-        z = self.cnn(sint.odeint(self.f, z0, t, args=(Ib, Bu, tempA)))
+        z = self.cnn(sint.odeint(
+            self.f, z0, t, args=(Ib, Bu, tempA), mxstep=1000))
         l = z[z.shape[0] - 1, :].reshape((self.n, self.m))
         l = l / (255.0)
         l = np.uint8(np.round(l * 255))
