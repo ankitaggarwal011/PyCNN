@@ -15,6 +15,9 @@ This python library is the implementation of CNN for the application of **Image 
 
 As shown in the above diagram, imagine a control system with a feedback loop. f(x) is the piece-wise linear sigmoid function. The control (template B) and the feedback (template A) templates (coefficients) are configurable and controls the output of the system. Significant research had been done in determining the templates for common image processing techniques, these templates are published in this [Template Library](http://cnn-technology.itk.ppke.hu/Template_library_v4.0alpha1.pdf).
 
+### Further reading:
+- [Methods for image processing and pattern formation in Cellular Neural Networks: A Tutorial](http://ai.pku.edu.cn/aiwebsite/research.files/collected%20papers%20-%20others/Methods%20for%20image%20processing%20and%20pattern%20formation%20in%20Cellular%20Neural%20Networks%20-%20a%20tutorial.pdf)
+
 ## Motivation
 
 This is an extension of a demo at 14th Cellular Nanoscale Networks and Applications (CNNA) Conference 2014. I have written a blog post, available at [Image Processing in CNN with Python on Raspberry Pi](http://blog.ankitaggarwal.me/technology/image-processing-with-cellular-neural-networks-in-python-on-raspberry-pi).
