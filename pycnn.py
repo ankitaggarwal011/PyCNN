@@ -43,8 +43,8 @@ warnings.filterwarnings('ignore')  # Ignore trivial warnings
 class pycnn(object):
 
     def __init__(self):
-        self.m = 0 # width (number of columns)
-        self.n = 0 # height (number of rows)
+        self.m = 0  # width (number of columns)
+        self.n = 0  # height (number of rows)
 
     def f(self, x, t, Ib, Bu, tempA):
         x = x.reshape((self.n, self.m))
