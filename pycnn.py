@@ -65,7 +65,7 @@ class pycnn(object):
         self.m = 0  # width (number of columns)
         self.n = 0  # height (number of rows)
 
-    def f(self, x, t, Ib, Bu, tempA):
+    def f(self, t, x, Ib, Bu, tempA):
         """Computes the derivative of x at t.
 
         Args:
@@ -135,9 +135,17 @@ class pycnn(object):
         z0 = u * initialcondition
         Bu = sig.convolve2d(u, tempB, 'same')
         z0 = z0.flatten()
-        z = self.cnn(sint.odeint(
-            self.f, z0, t, args=(Ib, Bu, tempA), mxstep=1000))
-        l = z[z.shape[0] - 1, :].reshape((self.n, self.m))
+        t_final = t.max()
+        t_initial = t.min()
+        dt = t[1] - t[0]
+        ode = sint.ode(self.f) \
+            .set_integrator("vode") \
+            .set_initial_value(z0, t_initial) \
+            .set_f_params(Ib, Bu, tempA)
+        while ode.successful() and ode.t < t_final:
+            ode_result = ode.integrate(ode.t + dt)
+        z = self.cnn(ode_result)
+        l = z[:].reshape((self.n, self.m))
         l = l / (255.0)
         l = np.uint8(np.round(l * 255))
         # The direct vectorization was causing problems on Raspberry Pi.
@@ -261,7 +269,7 @@ class pycnn(object):
         tempA = [[0.0, 0.0, 0.0], [0.0, 2.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[-1.0, -1.0, -1.0], [-1.0, 8.0, -1.0], [-1.0, -1.0, -1.0]]
         Ib = -0.5
-        t = np.linspace(0, 1.0, num=100)
+        t = np.linspace(0, 1.0, num=101)
         initialcondition = 0.0
         self.generaltemplates(
             name,
@@ -300,7 +308,7 @@ class pycnn(object):
         tempA = [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[-1.0, -1.0, -1.0], [-1.0, 4.0, -1.0], [-1.0, -1.0, -1.0]]
         Ib = -5.0
-        t = np.linspace(0, 10.0, num=10)
+        t = np.linspace(0, 10.0, num=11)
         initialcondition = 0.0
         self.generaltemplates(
             name,
@@ -340,7 +348,7 @@ class pycnn(object):
         tempA = [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[-1.0, 0.0, 1.0], [0.0, 1.0, 0.0], [1.0, 0.0, -1.0]]
         Ib = -4.0
-        t = np.linspace(0, 0.2, num=100)
+        t = np.linspace(0, 0.2, num=101)
         initialcondition = 0.0
         self.generaltemplates(
             name,
@@ -376,7 +384,7 @@ class pycnn(object):
         tempA = [[0.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 0.0]]
         tempB = [[0.0, 0.0, 0.0], [1.0, 1.0, 1.0], [0.0, 0.0, 0.0]]
         Ib = -2.0
-        t = np.linspace(0, 10.0, num=100)
+        t = np.linspace(0, 10.0, num=101)
         initialcondition = 0.0
         self.generaltemplates(
             name,
