@@ -137,12 +137,15 @@ class pycnn(object):
         z0 = z0.flatten()
         t_final = t.max()
         t_initial = t.min()
-        dt = t[1] - t[0]
+        if t.size > 1:
+            dt = t[1] - t[0]
+        else:
+            dt = t[0]
         ode = sint.ode(self.f) \
             .set_integrator('vode') \
             .set_initial_value(z0, t_initial) \
             .set_f_params(Ib, Bu, tempA)
-        while ode.successful() and ode.t < t_final:
+        while ode.successful() and ode.t < t_final + 0.1:
             ode_result = ode.integrate(ode.t + dt)
         z = self.cnn(ode_result)
         l = z[:].reshape((self.n, self.m))
