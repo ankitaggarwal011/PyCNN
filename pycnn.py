@@ -398,3 +398,39 @@ class pycnn(object):
             initialcondition,
             Ib,
             t)
+
+    def optimaledgedetection(self, inputlocation='', outputlocation='output.png'):
+        """Performs Optimal Edge Detection on the input image.
+
+        A = [[0.0 0.0 0.0],
+             [0.0 0.0 0.0],
+             [0.0 0.0 0.0]]
+
+        B = [[-0.11 0.0 0.11],
+             [-0.28.0 0.0 0.28],
+             [-0.11 0.0 0.11]]
+
+        z = 0.0
+
+        Initial state = 0.0
+
+        Args:
+            inputlocation (str): The string path for the input image.
+            outputlocation (str): The string path for the output processed
+                image.
+        """
+        name = 'Optimal Edge Detection'
+        tempA = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+        tempB = [[-0.11, 0.0, 0.11], [-0.28, 0.0, 0.28], [-0.11, 0.0, 0.11]]
+        Ib = 0.0
+        t = np.linspace(0, 10.0, num=101)
+        initialcondition = 0.0
+        self.generaltemplates(
+            name,
+            inputlocation,
+            outputlocation,
+            tempA,
+            tempB,
+            initialcondition,
+            Ib,
+            t)
