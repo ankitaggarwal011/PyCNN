@@ -399,7 +399,8 @@ class pycnn(object):
             Ib,
             t)
 
-    def optimaledgedetection(self, inputlocation='', outputlocation='output.png'):
+    def optimaledgedetection(self, inputlocation='',
+                             outputlocation='output.png'):
         """Performs Optimal Edge Detection on the input image.
 
         A = [[0.0 0.0 0.0],
