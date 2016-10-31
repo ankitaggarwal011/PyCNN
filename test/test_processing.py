@@ -16,7 +16,8 @@ class TestProcessing(unittest.TestCase):
 
     def setUp(self):
         self.cnn = pycnn()
-        self.input = os.path.join(IMAGE_DIR, 'input1.bmp')
+        self.input1 = os.path.join(IMAGE_DIR, 'input1.bmp')
+        self.input3 = os.path.join(IMAGE_DIR, 'input3.bmp')
         self.output = os.path.join(
             tempfile.gettempdir(),
             'cnn_output.png',
@@ -27,37 +28,37 @@ class TestProcessing(unittest.TestCase):
             os.remove(self.output)
 
     def test_edgedetection(self):
-        self.cnn.edgedetection(self.input, self.output)
+        self.cnn.edgedetection(self.input1, self.output)
         self.assertTrue(filecmp.cmp(
             self.output, os.path.join(IMAGE_DIR, 'output1.png'),
         ))
 
     def test_grayscaleedgedetection(self):
-        self.cnn.grayscaleedgedetection(self.input, self.output)
+        self.cnn.grayscaleedgedetection(self.input1, self.output)
         self.assertTrue(filecmp.cmp(
             self.output, os.path.join(IMAGE_DIR, 'output2.png'),
         ))
 
     def test_cornerdetection(self):
-        self.cnn.cornerdetection(self.input, self.output)
+        self.cnn.cornerdetection(self.input1, self.output)
         self.assertTrue(filecmp.cmp(
             self.output, os.path.join(IMAGE_DIR, 'output3.png'),
         ))
 
     def test_diagonallinedetection(self):
-        self.cnn.diagonallinedetection(self.input, self.output)
+        self.cnn.diagonallinedetection(self.input1, self.output)
         self.assertTrue(filecmp.cmp(
             self.output, os.path.join(IMAGE_DIR, 'output4.png'),
         ))
 
     def test_inversion(self):
-        self.cnn.inversion(self.input, self.output)
+        self.cnn.inversion(self.input1, self.output)
         self.assertTrue(filecmp.cmp(
             self.output, os.path.join(IMAGE_DIR, 'output5.png'),
         ))
 
     def test_optimaledgedetection(self):
-        self.cnn.optimaledgedetection(self.input, self.output)
+        self.cnn.optimaledgedetection(self.input3, self.output)
         self.assertTrue(filecmp.cmp(
             self.output, os.path.join(IMAGE_DIR, 'output6.png'),
         ))
