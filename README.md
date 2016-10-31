@@ -53,6 +53,8 @@ cnn = pycnn()
 
 ![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/input1.bmp)
 
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/input3.bmp)
+
 **Edge Detection:**
 
 ```python
@@ -92,6 +94,14 @@ cnn.inversion('images/input1.bmp', 'images/output5.png')
 ```
 
 ![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/output5.png)
+
+**Optimal Edge Detection:**
+
+```python
+cnn.optimaledgedetection('images/input3.bmp', 'images/output6.png')
+```
+
+![](https://raw.githubusercontent.com/ankitaggarwal011/PyCNN/master/images/output6.png)
 
 ## Example 2
 
@@ -194,6 +204,12 @@ Inversion (Login NOT)
 
 ```python
 cnn.inversion(inputimagelocation, outputimagelocation)
+```
+
+Optimal Edge Detection
+
+```python
+cnn.optimaledgedetection(inputimagelocation, outputimagelocation)
 ```
 
 ## License
