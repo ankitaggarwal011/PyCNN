@@ -56,6 +56,12 @@ class TestProcessing(unittest.TestCase):
             self.output, os.path.join(IMAGE_DIR, 'output5.png'),
         ))
 
+    def test_optimaledgedetection(self):
+        self.cnn.optimaledgedetection(self.input, self.output)
+        self.assertTrue(filecmp.cmp(
+            self.output, os.path.join(IMAGE_DIR, 'output6.png'),
+        ))
+
 
 class TestProcessingLena(unittest.TestCase):
 
