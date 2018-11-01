@@ -148,17 +148,17 @@ class PyCNN(object):
         while ode.successful() and ode.t < tFinal + 0.1:
             ode_result = ode.integrate(ode.t + dt)
         z = self.cnn(ode_result)
-        l = z[:].reshape((self.n, self.m))
-        l = l / (255.0)
-        l = np.uint8(np.round(l * 255))
+        out_l = z[:].reshape((self.n, self.m))
+        out_l = out_l / (255.0)
+        out_l = np.uint8(np.round(out_l * 255))
         # The direct vectorization was causing problems on Raspberry Pi.
         # In case anyone face a similar issue, use the below
         # loops rather than the above direct vectorization.
-        # for i in range(l.shape[0]):
-        #     for j in range(l.shape[1]):
-        #         l[i][j] = np.uint8(round(l[i][j] * 255))
-        l = img.fromarray(l).convert('RGB')
-        l.save(outputLocation)
+        # for i in range(out_l.shape[0]):
+        #     for j in range(out_l.shape[1]):
+        #         out_l[i][j] = np.uint8(round(out_l[i][j] * 255))
+        out_l = img.fromarray(out_l).convert('RGB')
+        out_l.save(outputLocation)
 
     # general image processing for given templates
     def generalTemplates(self,
