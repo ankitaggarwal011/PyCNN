@@ -11,7 +11,7 @@ This python library is the implementation of CNN for the application of **Image 
 
 **Note**: Cellular neural network (CNN) must not be confused with completely different convolutional neural network (ConvNet).
 
-![alt text](http://www.isiweb.ee.ethz.ch/haenggi/CNN_web/CNN_figures/blockdiagram.gif "CNN Architecture")
+![alt text](images/blockdiagram.png "CNN Architecture")
 
 As shown in the above diagram, imagine a control system with a feedback loop. f(x) is the piece-wise linear sigmoid function. The control (template B) and the feedback (template A) templates (coefficients) are configurable and controls the output of the system. Significant research had been done in determining the templates for common image processing techniques, these templates are published in this [Template Library](http://cnn-technology.itk.ppke.hu/Template_library_v4.0alpha1.pdf).
 
